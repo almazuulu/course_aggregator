@@ -1,8 +1,8 @@
-"""tables created
+"""create tables
 
-Revision ID: f102ed67d876
+Revision ID: 82e5d89d8d06
 Revises:
-Create Date: 2024-03-26 19:24:20.228589
+Create Date: 2024-03-27 00:37:54.547405
 
 """
 from __future__ import annotations
@@ -15,7 +15,7 @@ from alembic import op
 
 
 # revision identifiers, used by Alembic.
-revision: str = "f102ed67d876"
+revision: str = "82e5d89d8d06"
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -27,17 +27,17 @@ def upgrade() -> None:
         "course_category",
         sa.Column("id", sa.Integer(), nullable=False),
         sa.Column("name", sa.String(), nullable=False),
-        sa.Column("description", sa.String(), nullable=False),
+        sa.Column("description", sa.String(), nullable=True),
         sa.PrimaryKeyConstraint("id", name=op.f("pk_course_category")),
     )
     op.create_table(
         "course_provider",
         sa.Column("id", sa.UUID(), nullable=False),
         sa.Column("name", sa.String(), nullable=False),
-        sa.Column("description", sa.String(), nullable=False),
-        sa.Column("website", sa.String(), nullable=False),
-        sa.Column("address", sa.String(), nullable=False),
-        sa.Column("phone", sa.String(), nullable=False),
+        sa.Column("description", sa.String(), nullable=True),
+        sa.Column("website", sa.String(), nullable=True),
+        sa.Column("address", sa.String(), nullable=True),
+        sa.Column("phone", sa.String(), nullable=True),
         sa.Column(
             "created_at",
             sa.DateTime(timezone=True),
@@ -65,13 +65,13 @@ def upgrade() -> None:
         "course",
         sa.Column("id", sa.UUID(), nullable=False),
         sa.Column("title", sa.String(), nullable=False),
-        sa.Column("description", sa.String(), nullable=False),
+        sa.Column("description", sa.String(), nullable=True),
         sa.Column("category_id", sa.Integer(), nullable=False),
         sa.Column("provider_id", sa.UUID(), nullable=False),
-        sa.Column("language", sa.String(), nullable=False),
-        sa.Column("price", sa.Integer(), nullable=False),
-        sa.Column("start_date", sa.DateTime(), nullable=False),
-        sa.Column("end_date", sa.DateTime(), nullable=False),
+        sa.Column("language", sa.String(), nullable=True),
+        sa.Column("price", sa.String(), nullable=True),
+        sa.Column("start_date", sa.String(), nullable=True),
+        sa.Column("end_date", sa.String(), nullable=True),
         sa.Column(
             "created_at",
             sa.DateTime(timezone=True),
@@ -118,7 +118,7 @@ def upgrade() -> None:
         sa.Column("course_id", sa.UUID(), nullable=False),
         sa.Column("user_id", sa.UUID(), nullable=False),
         sa.Column("rating", sa.Float(), nullable=False),
-        sa.Column("comment", sa.String(), nullable=False),
+        sa.Column("comment", sa.String(), nullable=True),
         sa.Column(
             "created_at",
             sa.DateTime(timezone=True),
