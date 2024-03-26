@@ -8,7 +8,7 @@ from logging import Logger
 
 from config import Settings
 from core.db_settings import create_async_session
-from course.courses.schemas.base import Pagination
+from schemas.base import Pagination
 from sqlalchemy.ext.asyncio import AsyncSession
 from starlette.requests import Request
 
