@@ -16,9 +16,3 @@ async_engine = create_async_engine(
 )
 
 create_async_session = async_sessionmaker(async_engine, expire_on_commit=False)
-
-
-
-
-
-
