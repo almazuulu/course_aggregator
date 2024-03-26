@@ -23,8 +23,9 @@ class DBSettings(BaseSettings):
 
 
 class Settings(APISettings, DBSettings):
-    DEBUG: bool = False
     model_config = SettingsConfigDict(env_file="../.env", extra="ignore")
+
+    DEBUG: bool = False
     # CORS
     CORS_ALLOW_METHODS: list[str] = ["*"]
     CORS_ALLOW_ORIGINS: list[str] = (

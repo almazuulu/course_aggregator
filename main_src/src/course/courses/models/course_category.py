@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from models.base_model import Base
 from sqlalchemy import Integer
+from sqlalchemy import String
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
@@ -12,6 +13,6 @@ class CourseCategory(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str]
-    description: Mapped[str]
+    description: Mapped[str] = mapped_column(String, nullable=True)
 
     course = relationship("Course", back_populates="course_categories")
