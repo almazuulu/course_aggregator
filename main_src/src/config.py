@@ -1,11 +1,12 @@
-import os
+from __future__ import annotations
 
 from pydantic import SecretStr
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings
+from pydantic_settings import SettingsConfigDict
 
 
 class APISettings(BaseSettings):
-    APP_NAME: str = 'Couser Aggregator'
+    APP_NAME: str = "Couser Aggregator"
     OPENAPI_DESCRIPTION: str = "Сервис для агрегации курсов"
     ADMIN_EMAIL: str
 
@@ -81,5 +82,6 @@ class Settings(APISettings, DBSettings):
 
     @property
     def db_url(self) -> str:
-        return self.DATABASE_URL % self.COURSE_AGGREGATOR_DB_CREDENTIALS.get_secret_value()
-
+        return (
+            self.DATABASE_URL % self.COURSE_AGGREGATOR_DB_CREDENTIALS.get_secret_value()
+        )
