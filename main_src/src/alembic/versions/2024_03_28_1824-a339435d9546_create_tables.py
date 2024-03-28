@@ -1,8 +1,8 @@
 """create tables
 
-Revision ID: 82e5d89d8d06
+Revision ID: a339435d9546
 Revises:
-Create Date: 2024-03-27 00:37:54.547405
+Create Date: 2024-03-28 18:24:49.604307
 
 """
 from __future__ import annotations
@@ -15,7 +15,7 @@ from alembic import op
 
 
 # revision identifiers, used by Alembic.
-revision: str = "82e5d89d8d06"
+revision: str = "a339435d9546"
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
