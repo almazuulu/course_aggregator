@@ -4,6 +4,7 @@ from course.course_providers import models as course_providers_models
 from course.reviews import models as review_models
 from models.base_model import Base
 from users import models as users_models
+# from course.courses import models as course_models
 
 __all__ = (
     # *course_models.__all__,
